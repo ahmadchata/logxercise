@@ -4,10 +4,24 @@
 /* mixins, variables, etc. */
 $app-blue: #3778c2;
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* universal */
 
 body {
   padding-top: 60px;
+}
+
+/* typography */
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 /* header */
@@ -34,4 +48,33 @@ nav {
   a {
     color: #fff;
   }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $app-blue;
+  color: $gray;
+  a {
+    color: $gray;
+    &:hover {
+      color: $app-blue;
+    }
+  }
+  small {
+    float: left;
+  }
+}
+
+/* forms */
+input, textarea {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+input {
+  height: auto !important;
 }
