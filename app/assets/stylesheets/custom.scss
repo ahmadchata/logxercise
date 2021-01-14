@@ -15,8 +15,17 @@ $app-green: #5fb523;
 
 body {
   padding-top: 35px;
+  height: 100vh;
+  position: relative;
 }
 
+.high {
+  height: 100%;
+}
+
+.bottom {
+  bottom: 0;
+}
 /* typography */
 h1 {
   font-size: 3em;
@@ -95,6 +104,7 @@ input {
 /* user */
 .user-info {
   background-image: linear-gradient(180deg, #434b54, $app-blue);
+  height: 85%;
   h1 {
     color: white;
   }
