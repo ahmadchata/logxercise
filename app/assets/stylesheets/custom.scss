@@ -3,6 +3,7 @@
 
 /* mixins, variables, etc. */
 $app-blue: #3778c2;
+$app-green: #5fb523;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -69,7 +70,7 @@ footer {
 }
 
 /* forms */
-input, textarea {
+input, textarea, .wide {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 5px;
