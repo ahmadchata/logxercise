@@ -4,6 +4,7 @@
       <nav>
         <ul class="nav navbar-nav navbar-left">
           <li><%= link_to "Home", root_path %></li>
+          <% if logged_in? %>
         </ul>
       </nav>
   </div>
