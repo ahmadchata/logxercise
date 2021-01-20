@@ -5,11 +5,16 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_name(params[:name])
     if user
-      session[:user_id] = user.id
-      redirect_to user_path(current_user), notice: 'Logged in!'
+      log_in user
+      redirect_to user
     else
       flash.now[:danger] = 'Invalid name'
       render 'new'
     end
+  end
+
+  def destroy
+    log_out
+    redirect_to root_url
   end
 end
