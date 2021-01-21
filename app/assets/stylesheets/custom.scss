@@ -103,8 +103,8 @@ input {
 
 /* user */
 .user-info {
-  background-image: linear-gradient(180deg, #434b54, $app-blue);
-  height: 85%;
+  background: linear-gradient(235deg, #143562, $app-blue);
+  height: 100%;
   h1 {
     color: white;
   }
@@ -117,6 +117,8 @@ input {
       a {
         color: white;
         text-decoration: none;
+        font-size: 2.2rem;
+        font-weight: 100;
       }
     }
   }
