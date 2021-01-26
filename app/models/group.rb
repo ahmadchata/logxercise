@@ -3,4 +3,5 @@ class Group < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
+  validates :image, content_type: { in: %w[image/jpeg image/gif image/png], mesaage: "must be a valid image format" }, size: { less_than: 3.megabytes, message: "should be less than 3MB" }
 end
