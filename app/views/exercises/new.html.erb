@@ -1,0 +1,16 @@
+<% provide(:title, "New Exercise") %>
+<h1>Create new exercise</h1>
+<div class="row">
+  <div class= "col-md-6 col-md-offset-3">
+    <%= form_with(model: @exercise, local: true) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :duration %>
+      <%= f.number_field :duration, class: 'form-control' %>
+
+      <%= f.submit "Create Exercise", class: 'btn btn-success' %>
+      <% end %>
+  </div>
+</div>
