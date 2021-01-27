@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users
   resources :groups, only: %i[new create index]
   resources :sessions, only: %i[new create destroy]
+  resources :exercises, only: %i[new create index]
 end
