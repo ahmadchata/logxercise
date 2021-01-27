@@ -2,6 +2,10 @@
   <h1>LOGXERCISE</h1>
 </div>
 <div class="d-grid col-6 mx-auto bottom">
+  <% if logged_in? %>
+  <%= link_to "LOG OUT", logout_path, method: :delete, class: "btn btn-primary wide" %>
+  <% else %>
   <%= link_to "LOG IN", login_path, class: "btn btn-primary wide" %>
   <%= link_to "SIGN UP", signup_path, class: "btn btn-primary wide" %>
+  <% end %>
 </div>
