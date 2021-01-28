@@ -10,12 +10,22 @@ class ExercisesController < ApplicationController
 
   def create
     @exercise = current_user.exercises.build(exercise_param)
-    @exercises.group_id = 1
+    # @groups = params[:exercise][:group_ids]
+    # @groups.each do |g|
+    #   gp = Group.find(g)
+      @exercise.groups << Group.find(1)
+    # end
+     if @exercise.save
+      flash[:success] = "Exercise created"
+      redirect_to exercises_path
+    else
+      render 'exercises/new'
+    end
 
   end
 
   private
     def exercise_param
-      params.require(:exercise).permit(:name, :duration)
+      params.require(:exercise).permit(:name, :duration, :group_id)
     end
 end

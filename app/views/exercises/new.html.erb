@@ -2,12 +2,12 @@
 <h1>Create new exercise</h1>
 <div class="row">
   <div class= "col-md-6 col-md-offset-3">
-    <%= form_with(model: @exercise, local: true) do |f| %>
+    <%= form_with(scope: :exercise, url: exercises_path, local: true) do |f| %>
     <div class="box">
-      <%= f.label :group_ids, "Group" %>
+      <%= f.label :group %>
         <% @groups.each do |group| %>
             <div>
-              <%= f.label :group_ids, group.name %>
+              <%= f.label group.name %>
               <%= f.check_box(:group_ids, {multiple: true}, group.id) %>
             </div>
           <% end %>
@@ -18,6 +18,9 @@
 
       <%= f.label :duration %>
       <%= f.number_field :duration, class: 'form-control' %>
+
+      <%= f.label :group_id %>
+      <%= f.number_field :group_id, class: 'form-control' %>
 
       <%= f.submit "Create Exercise", class: 'btn btn-success' %>
       <% end %>
