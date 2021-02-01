@@ -2,7 +2,7 @@
   <h4>Exercises</h4>
   <h3>Total Hours: <%= sum %> Hours</h3>
   <div class="row">
-    <% @exercises.each do |e| %>
+    <% @current_user.exercises.each do |e| %>
     <div class="card mb-4 shadow" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-3">
