@@ -13,7 +13,7 @@ class ExercisesController < ApplicationController
     # @groups = params[:exercise][:group_ids]
     # @groups.each do |g|
     #   gp = Group.find(g)
-      @exercise.groups << Group.find(1)
+      # @exercise.groups << Group.find(1)
     # end
      if @exercise.save
       flash[:success] = "Exercise created"
