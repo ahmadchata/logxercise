@@ -5,11 +5,11 @@ class ExercisesController < ApplicationController
   end
 
   def new
-    @groups = Group.all
   end
 
   def create
     @exercise = current_user.exercises.build(exercise_param)
+    @groups = params[:exercise][:group_ids]
     # @groups = params[:exercise][:group_ids]
     # @groups.each do |g|
     #   gp = Group.find(g)

@@ -5,19 +5,17 @@
     <%= form_with(scope: :exercise, url: exercises_path, local: true) do |f| %>
     <div class="box">
       <%= f.label :group %>
-        <% @groups.each do |group| %>
-            <div>
-              <%= f.label group.name %>
-              <%= f.check_box(:group_ids, {multiple: true}, group.id) %>
-            </div>
-          <% end %>
-        </div>
+      <%= collection_check_boxes :exercise, :group_ids, Group.all, :id, :name do |b| %>
+      <%= b.check_box %>
+      <%= b.label %>
+      <% end %>
+    </div>
 
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, placeholder: 'Enter name of exercise', class: 'form-control' %>
 
       <%= f.label :duration %>
-      <%= f.number_field :duration, class: 'form-control' %>
+      <%= f.number_field :duration, placeholder: "Enter duration in hours", class: 'form-control' %>
 
       <%= f.submit "Create Exercise", class: 'btn btn-success' %>
       <% end %>
