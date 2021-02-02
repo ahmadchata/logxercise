@@ -5,14 +5,16 @@ class ExercisesController < ApplicationController
   end
 
   def new
+    @exercises = Exercise.new
     @groups = Group.all
   end
 
   def create
-    @exercise = Exercise.new(exercise_param.merge(author_id: current_user.id))
+    byebug
+    @exercise = Exercise.new(exercise_params)
     # @exercise = current_user.exercises.build(exercise_param)
     unless params[:exercise][:groups].nil?
-      @group = Group.find(params[:exercise][:groups])
+      @group = Group.find(params[:exercise][:groups].to_i)
       @exercise.groups << @group
 
     # current_exercise_group = @exercise.groups
@@ -32,7 +34,7 @@ class ExercisesController < ApplicationController
   end
 
   private
-    def exercise_param
+    def exercise_params
       params.require(:exercise).permit(:name, :duration)
     end
 end
