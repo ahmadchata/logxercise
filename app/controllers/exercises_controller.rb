@@ -5,16 +5,23 @@ class ExercisesController < ApplicationController
   end
 
   def new
+    @groups = Group.all
   end
 
   def create
-    @exercise = current_user.exercises.build(exercise_param)
-    @groups = params[:exercise][:group_ids]
-    # @groups = params[:exercise][:group_ids]
+    @exercise = Exercise.new(exercise_param.merge(author_id: current_user.id))
+    # @exercise = current_user.exercises.build(exercise_param)
+    unless params[:exercise][:groups].nil?
+      @group = Group.find(params[:exercise][:groups])
+      @exercise.groups << @group
+
+    # current_exercise_group = @exercise.groups
     # @groups.each do |g|
-    #   gp = Group.find(g)
-      # @exercise.groups << Group.find(1)
-    # end
+    #   unless g.empty?
+    #     gp = Group.find(g)
+    #     @exercise.groups << gp unless current_exercise_group.include?(gp)
+    #   end
+    end
      if @exercise.save
       flash[:success] = "Exercise created"
       redirect_to exercises_path
