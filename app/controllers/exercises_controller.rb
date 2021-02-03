@@ -1,7 +1,7 @@
 class ExercisesController < ApplicationController
   before_action :require_login
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.includes(:user).desc
   end
 
   def new
