@@ -10,24 +10,18 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    byebug
     @exercise = Exercise.new(exercise_params)
-    # @exercise = current_user.exercises.build(exercise_param)
+    @exercise.user_id = current_user.id
     unless params[:exercise][:groups].nil?
-      @group = Group.find(params[:exercise][:groups].to_i)
+      @group = Group.find(params[:exercise][:groups])
       @exercise.groups << @group
-
-    # current_exercise_group = @exercise.groups
-    # @groups.each do |g|
-    #   unless g.empty?
-    #     gp = Group.find(g)
-    #     @exercise.groups << gp unless current_exercise_group.include?(gp)
-    #   end
     end
      if @exercise.save
       flash[:success] = "Exercise created"
       redirect_to exercises_path
     else
+      flash[:danger] = "Something happened"
+      @groups = Group.all
       render 'exercises/new'
     end
 
