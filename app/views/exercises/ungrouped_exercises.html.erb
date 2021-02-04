@@ -1,1 +1,23 @@
-<h1>External</h1>
+<% provide(:title, "External Exercises") %>
+<div class="container">
+  <h4>External Exercises</h4>
+  <h3>Total Hours: Hours</h3>
+  <div class="row">
+    <% @exer.each do |ex| %>
+      <div class="card mb-4 shadow" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <h5 class="card-title"><%= ex.name %></h5>
+                <p class="card-text"><small class="text-muted"><%= ex.duration %></small></p>
+                <p class="card-text"><small class="text-muted"><%= ex.created_at.strftime("%d %b. %Y") %></small></p>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div><%= link_to "Create new exercise", new_exercise_path, class: "btn btn-success wide" %></div>
+</div>
