@@ -10,6 +10,11 @@ class Group < ApplicationRecord
 
   # Returns a resized image
   def display_image
-    image.variant(resize_to_limit: [80, 80])
+    if image.attached?
+      image.variant(resize_to_limit: [80, 80])
+    else
+      image.attach(io: File.open(Rails.root.join("app", "assets", "images", "microverse.jpg")), filename: 'microverse.jpg' , content_type: "image/jpg")
+    end
+    # image.attached? ? image.variant(resize_to_limit: [80, 80]) : 'app/assets/images/default.png'
   end
 end
