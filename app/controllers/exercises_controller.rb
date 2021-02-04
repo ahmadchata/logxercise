@@ -26,15 +26,15 @@ class ExercisesController < ApplicationController
     end
   end
 
-   def ungrouped_books
-    @all_exercises = Exercise.where_id_is(current_user.id).includes(:groups)
-    @exercises = []
+   def ungrouped_exercises
+    @all_exercises = Exercise.where(user_id: current_user.id).includes(:groups)
+    @exer = []
 
     @all_exercises.each do |exercise|
-      @exercises << exercise if exercise.groups.empty?
+      @exer << exercise if exercise.groups.empty?
     end
 
-    @exercises
+    @exer
   end
 
   private
