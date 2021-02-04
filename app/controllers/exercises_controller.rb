@@ -24,7 +24,17 @@ class ExercisesController < ApplicationController
       @groups = Group.all
       render 'exercises/new'
     end
+  end
 
+   def ungrouped_books
+    @all_exercises = Exercise.where_id_is(current_user.id).includes(:groups)
+    @exercises = []
+
+    @all_exercises.each do |exercise|
+      @exercises << exercise if exercise.groups.empty?
+    end
+
+    @exercises
   end
 
   private
