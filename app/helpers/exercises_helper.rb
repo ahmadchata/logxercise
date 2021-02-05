@@ -24,7 +24,7 @@ module ExercisesHelper
       <div class=\"col-md-9\">
       <div class=\"card-body\">
         <h5 class=\"card-title\">#{ e.name }</h5>
-        <p class=\"card-text\"><small class=\"text-muted\"> #{e.duration} </small></p>
+        <p class=\"card-text\"><small class=\"text-muted\"> #{e.duration} hour(s) </small></p>
         <p class=\"card-text\"><small class=\"text-muted\"> #{e.created_at.strftime("%d %b. %Y")}</small></p>
       </div>
     </div>

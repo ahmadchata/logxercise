@@ -2,6 +2,7 @@
 <h1>Create new exercise</h1>
 <div class="row">
   <div class= "col-md-6 col-md-offset-3">
+    <%= render 'shared/messages_exercise' %>
     <%= form_with(scope: :exercise, url: exercises_path, local: true) do |f| %>
     <div>
       <%= f.label :group %><br>
