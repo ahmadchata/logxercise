@@ -3,6 +3,14 @@ module ExercisesHelper
     current_user.exercises.sum(:duration)
   end
 
+  def external_sum
+    sum = 0
+    @exer.each do |i|
+      sum += i.duration
+    end
+    sum
+  end
+
   def show_exercise
     exercise_show = ''
 

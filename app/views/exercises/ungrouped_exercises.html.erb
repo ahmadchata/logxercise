@@ -1,7 +1,7 @@
 <% provide(:title, "External Exercises") %>
 <div class="container">
   <h4>External Exercises</h4>
-  <h3>Total Hours: Hours</h3>
+  <h3>Total Hours: <%= external_sum %> Hours</h3>
   <div class="row">
     <% @exer.each do |ex| %>
       <div class="card mb-4 shadow" style="max-width: 540px;">
