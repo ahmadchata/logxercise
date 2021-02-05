@@ -2,6 +2,25 @@
   <h4>Exercises</h4>
   <h3>Total Hours: <%= sum %> Hour(s)</h3>
   <div class="row">
-    <%= show_exercise %>
+    <% @exercises.each do |e| %>
+    <div class="card mb-4 shadow" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-3">
+          <% if e.groups.empty? %>
+          <%= image_tag ("/assets/microverse.jpg") %>
+          <% else %>
+           <%= image_tag e.groups.first.display_image %>
+           <% end %>
+        </div>
+      <div class="col-md-9">
+      <div class="card-body">
+        <h5 class="card-title"><%= e.name %></h5>
+        <p class="card-text"><small class="text-muted"><%= e.duration %> hour(s) </small></p>
+        <p class="card-text"><small class="text-muted"><%= e.created_at.strftime("%d %b. %Y") %></small></p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <% end %>
   <div><%= link_to "Create new exercise", new_exercise_path, class: "btn btn-success wide" %></div>
 </div>
