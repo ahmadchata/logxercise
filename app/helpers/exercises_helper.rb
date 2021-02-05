@@ -11,7 +11,7 @@ module ExercisesHelper
     <div class=\"card mb-4 shadow\" style=\"max-width: 540px;\">
       <div class=\"row g-0\">
         <div class=\"col-md-3\">
-           <img src= \"apps/assets/images/microverse.jpg\" >
+           <img src=\"assets/microverse.jpg\" >
         </div>
       <div class=\"col-md-9\">
       <div class=\"card-body\">
