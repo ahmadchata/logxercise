@@ -1,5 +1,5 @@
-<% provide(:title, "Sign up") %>
-<h1>Sign up</h1>
+<% provide(:title, "Update") %>
+<h1>Update Name</h1>
 <div class="row">
   <div class= "col-md-6 col-md-offset-3">
     <%= form_with(model: @user, local: true) do |f| %>
@@ -8,7 +8,8 @@
       <%= f.text_field :name, class: 'form-control' %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.submit "Create Account", class: 'btn btn-success' %>
+      <%= f.submit "Update Account", class: 'btn btn-success' %>
       <% end %>
   </div>
 </div>
+
