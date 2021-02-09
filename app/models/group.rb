@@ -16,13 +16,5 @@ class Group < ApplicationRecord
     else
       self.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "microverse.jpg")), filename: 'microverse.jpg' , content_type: "image/jpg")
     end
-    # image.attached? ? image.variant(resize_to_limit: [80, 80]) : 'app/assets/images/default.png'
   end
-
-  private
-  def add_default_cover
-  unless cover.attached?
-    self.cover.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpeg")), filename: 'default.jpg' , content_type: "image/jpg")
-  end
-end
 end
