@@ -8,7 +8,7 @@ RSpec.describe 'New Group', type: :feature do
     visit '/login'
     fill_in 'Name', with: @user.name
     click_button 'Log in'
-    expect(current_path).to eql("/users/1")
+    expect(current_path).to eql("/users/2")
 
     click_link 'All groups'
     click_link 'Create new group'
