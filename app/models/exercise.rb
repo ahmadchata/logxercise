@@ -1,5 +1,6 @@
 class Exercise < ApplicationRecord
-  validates :name, :duration, presence: true, length: { minimum: 3, maximum: 15 }
+  validates :name, presence: true, length: { minimum: 3, maximum: 15 }
+  validates :duration, presence: true
 
   belongs_to :user
   has_many :group_exercises
