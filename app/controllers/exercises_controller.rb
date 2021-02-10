@@ -16,17 +16,17 @@ class ExercisesController < ApplicationController
       @group = Group.find(params[:exercise][:groups])
       @exercise.groups << @group
     end
-     if @exercise.save
-      flash[:success] = "Exercise created"
+    if @exercise.save
+      flash[:success] = 'Exercise created'
       redirect_to exercises_path
     else
-      flash[:danger] = "Something happened"
+      flash[:danger] = 'Something happened'
       @groups = Group.all
       render 'exercises/new'
     end
   end
 
-   def ungrouped_exercises
+  def ungrouped_exercises
     @all_exercises = Exercise.where(user_id: current_user.id).includes(:groups)
     @exer = []
 
@@ -38,7 +38,8 @@ class ExercisesController < ApplicationController
   end
 
   private
-    def exercise_params
-      params.require(:exercise).permit(:name, :duration)
-    end
+
+  def exercise_params
+    params.require(:exercise).permit(:name, :duration)
+  end
 end
