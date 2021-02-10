@@ -24,4 +24,18 @@ RSpec.describe Exercise, type: :model do
       expect(@exercise.save).not_to be true
     end
   end
+
+  context 'Association between exercise and group model' do
+    it 'assign many groups to an exercise' do
+      @exercise = Exercise.create!(name: "Push ups", duration: 1, user_id: user.id)
+
+      @group1 = Group.create!(name: "Aerobic", user_id: user.id)
+      @group2 = Group.create!(name: "Cardial", user_id: user.id)
+
+      @exercise.groups << @group1
+      @exercise.groups << @group2
+
+      expect(@exercise.groups.last.name).to eql("Cardial")
+    end
+  end
 end
