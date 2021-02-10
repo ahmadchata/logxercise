@@ -12,9 +12,9 @@ The project also includes a number of features such as User sign up and sign in,
 
 |Profile Page|Exercises Page
 |-|-|
-|![](screenshots/Litrack1.png)|![](screenshots/Litrack2.png)
-|Groups page|Book Details|
-|![](screenshots/Litrack3.png)|![](screenshots/Litrack4.png)
+|![](docs/Profile.png)|![](docs/Exercise.png)
+|Groups page|
+|![](docs/groups.png)|
 
 ## Built With
 
