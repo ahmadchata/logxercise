@@ -62,7 +62,7 @@ The project also includes a number of features such as User sign up and sign in,
 
 ## Live Demo
 
-- TBA
+- [Logxercise](https://young-mesa-60051.herokuapp.com/)
 
 ## Contributions
 
