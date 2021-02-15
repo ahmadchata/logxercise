@@ -1,0 +1,10 @@
+<% provide(:title, @user.name) %>
+<div class="row user-info">
+  <h1><%= @user.name %></h1>
+  <ul>
+    <li><%= link_to "Account settings", edit_user_path, class: "py-3" %></li>
+    <li><%= link_to "All my exercises", exercises_path, class: "py-3" %></li>
+    <li><%= link_to "All my external exercises", external_path, class: "py-3" %></li>
+    <li><%= link_to "All groups", groups_path, class: "py-3" %></li>
+  </ul>
+</div>

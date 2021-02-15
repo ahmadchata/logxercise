@@ -1,0 +1,143 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+$app-blue: #3778c2;
+$app-green: #5fb523;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+body {
+  padding-top: 35px;
+  height: 100vh;
+  position: relative;
+}
+
+.high {
+  height: 100%;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bottom {
+  bottom: 0;
+}
+
+/* typography */
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* header */
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.header {
+  background: $app-blue;
+}
+
+nav {
+  a {
+    color: #fff;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $app-blue;
+  color: $gray;
+
+  a {
+    color: $gray;
+
+    &:hover {
+      color: $app-blue;
+    }
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+/* user */
+.user-info {
+  background: linear-gradient(235deg, #143562, $app-blue);
+  height: 100%;
+
+  h1 {
+    color: white;
+  }
+
+  ul {
+    list-style-type: none;
+
+    li {
+      border-bottom: 1px solid white;
+      padding: 10px 10px;
+      margin-right: 30px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 2.2rem;
+        font-weight: 100;
+      }
+    }
+  }
+}
+
+/* forms */
+input,
+textarea,
+.wide {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 5px;
+
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
