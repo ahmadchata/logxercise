@@ -9,7 +9,7 @@ class Group < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 15 }
   validates :image, content_type: { in: %w[image/jpeg image/gif image/png],
                                     mesaage: 'must be a valid image format' },
-                    size: { less_than: 3.megabytes, message: 'should be less than 3MB' }
+                    size: { less_than: 1.megabytes, message: 'should be less than 1MB' }
 
   # Returns a resized image
   def display_image
